@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Course } from '../../../shared/entities/entity';
 
 @Injectable({
@@ -8,25 +8,17 @@ import { Course } from '../../../shared/entities/entity';
 })
 export class CoursesService {
   
-  private url = "https://curso.sunsetmanager.com/api"
+  // private url = "https://curso.sunsetmanager.com/api"
+  private url = "https://68a25a8ec5a31eb7bb1cc6a1.mockapi.io";
 
     constructor(private http:HttpClient) {
 
 
     }
 
-    loadCourses() {
+    loadCourses(): Observable<Course[]> {
 
-      return this.http.get(`${this.url}/course`).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
+      return this.http.get<Course[]>(`${this.url}/course`)
 
     }
 

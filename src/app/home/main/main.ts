@@ -12,7 +12,7 @@ export class Main {
 
   constructor() {
 
-     this.user = "" + sessionStorage.getItem("user");
+     this.user = "" + sessionStorage.getItem("user") + " / " + sessionStorage.getItem("role");
 
 
   }

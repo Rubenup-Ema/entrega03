@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { ServicesLogin } from '../../shared/services/services.login';
 import { Message } from '../../shared/services/message';
+import { DataLogin } from './login.entity';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,14 @@ export class Login implements OnInit {
 
     ngOnInit(): void {
       
+      this._services.loadData().subscribe({
+
+        next: ()=>{console.log('data cargada..')},
+        error: (err) => {
+          console.log(err);
+          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err}`)}
+
+      })
       sessionStorage.setItem("user","");
 
     }
@@ -37,24 +46,23 @@ export class Login implements OnInit {
 
       this.procesando = true;
 
-      this._services.validarLogin(this.form.get("username")?.value,this.form.get("password")?.value).subscribe(
+      this._services.validarLogin(this.form.get("username")?.value,this.form.get("password")?.value).subscribe({
 
-        (data:any) => {
+        next: (data:DataLogin) => {
 
-          if (data.ok.toString()==="true") {
+          sessionStorage.setItem("user", data.name);
+          sessionStorage.setItem("role", data.role);
+          sessionStorage.setItem("email", data.email);
 
-            const result = data.result[0];
-            sessionStorage.setItem("user",result.name);
-            this.router.navigate(['/home']);
+          this.router.navigate(['/home']);
 
-          } else {
-            this.procesando = false;
-            this.snackBar.show(data.msg);
+        },
+        error: (err) => {
+          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err}`);
+        },
+        complete: ()=> {console.log('Proceso completado')}
 
-          }
-
-        }
-
+      }
       )
     
 
