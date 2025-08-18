@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { RoutePaths } from '../../shared/utils/routes';
 import { CommonModule } from '@angular/common';
+import { Main } from '../main/main';
+import { Breadcrumb } from "../breadcrumb/breadcrumb";
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, Main, Breadcrumb, MatIcon],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -13,7 +16,6 @@ export class Dashboard implements OnInit {
 
 
     constructor(private router:Router) {
-
 
     }
 

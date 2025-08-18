@@ -14,19 +14,16 @@ export const routes: Routes = [
       },
       {
         path: RoutePaths.STUDENTS,
-        loadComponent: () => import('./features/students/students').then(m => m.Students)
+        loadComponent: () => import('./features/students/students').then(m => m.Students),
+        
       },
       {
         path: RoutePaths.USERS,
         loadComponent: () => import('./features/users/users').then(m => m.Users)
       },
       {
-        path: RoutePaths.MAIN,
-        loadComponent: () => import('./home/main/main').then(m => m.Main)
-      },
-      {
         path: '',
-        redirectTo: RoutePaths.MAIN, 
+        redirectTo: RoutePaths.HOME, 
         pathMatch: 'full'
       }
     ] },
