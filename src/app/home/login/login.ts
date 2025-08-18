@@ -29,6 +29,12 @@ export class Login implements OnInit {
 
     ngOnInit(): void {
       
+      this.loadInfo();
+
+    }
+
+    loadInfo() {
+
       this._services.loadData().subscribe({
 
         next: ()=>{console.log('data cargada..')},
@@ -38,6 +44,8 @@ export class Login implements OnInit {
 
       })
       sessionStorage.setItem("user","");
+      sessionStorage.setItem("role","");
+      sessionStorage.setItem("email","");
 
     }
 

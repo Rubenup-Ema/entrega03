@@ -18,7 +18,7 @@ export class CoursesTable {
   @Output() CourseDelete= new EventEmitter<Course>();
 
   displayedColumns: string[] = ['id', 'title', 'description' ,'acciones']
-
+  role = '';
   constructor() {
 
 
@@ -26,7 +26,8 @@ export class CoursesTable {
 
   ngOnInit(): void {
     
-   
+   this.role = sessionStorage.getItem("role") || '';
+
 
   }
 

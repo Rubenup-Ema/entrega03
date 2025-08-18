@@ -48,7 +48,7 @@
       <button mat-icon-button color="primary" class="btn btn-success" (click)="onEdit(element)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" class="btn btn-danger" (click)="onDelete(element)">
+      <button mat-icon-button color="warn" class="btn btn-danger" (click)="onDelete(element)" [disabled]="role!=='admin'">
         <mat-icon>delete</mat-icon>
       </button>
     </tr>

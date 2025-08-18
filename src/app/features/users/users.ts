@@ -22,6 +22,7 @@ export class Users {
   users: User[] = [];
   formVisible: boolean[] = [false,false,false]; // [list, add, edit]
 
+
   constructor(private _servicios: UsersService, private dialog: MatDialog, private snackBar:Message) {
 
 
@@ -29,6 +30,7 @@ export class Users {
   }
 
   ngOnInit(): void {
+    
     
      this.loadUsers();
      this.formVisible[0] = true;

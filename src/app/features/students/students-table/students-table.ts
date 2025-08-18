@@ -22,7 +22,7 @@ export class StudentsTable implements OnInit {
   @Output() studentDelete= new EventEmitter<Student>();
 
   displayedColumns: string[] = ['name', 'surname', 'fullname', 'age', 'dni', 'average', 'title' , 'acciones']
-
+  role ='';
   constructor() {
 
 
@@ -30,6 +30,8 @@ export class StudentsTable implements OnInit {
 
   ngOnInit(): void {
     
+    this.role = sessionStorage.getItem("role") || '';
+
 
   }
 

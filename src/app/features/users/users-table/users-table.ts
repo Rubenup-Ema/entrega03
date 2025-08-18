@@ -16,7 +16,7 @@ export class UsersTable {
   @Output() UserDelete= new EventEmitter<User>();
 
   displayedColumns: string[] = ['id', 'name', 'email' ,'password','role', 'acciones']
-
+  role = '';
   constructor() {
 
 
@@ -24,7 +24,7 @@ export class UsersTable {
 
   ngOnInit(): void {
     
-   
+    this.role = sessionStorage.getItem("role") || '';
 
   }
 
