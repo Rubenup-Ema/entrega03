@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
 import { AddStudent } from "./add-student/add-student";
 import { CoursesService } from '../course/courses-service/courses.service';
 import { EditStudent } from './edit-student/edit-student';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-students',
-  imports: [StudentsTable, FormsModule, CommonModule, AddStudent,EditStudent],
+  imports: [StudentsTable, FormsModule, CommonModule, AddStudent,EditStudent, MatIcon],
   templateUrl: './students.html',
   styleUrl: './students.scss'
 })

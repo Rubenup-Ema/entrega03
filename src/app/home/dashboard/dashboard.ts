@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { RoutePaths } from '../../shared/utils/routes';
 import { CommonModule } from '@angular/common';
 import { Main } from '../main/main';
 import { Breadcrumb } from "../breadcrumb/breadcrumb";
 import { MatIcon } from '@angular/material/icon';
+import { MenuVer } from "../menu-ver/menu-ver";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, CommonModule, Main, Breadcrumb, MatIcon],
+  imports: [RouterOutlet, CommonModule, Main, Breadcrumb, MatIcon, MenuVer],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -31,31 +31,6 @@ export class Dashboard implements OnInit {
 
     }
 
-    menu(id: number) {
-
-      switch (id) {
-
-         case 1: 
-         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.COURSES ])
-         break;
-
-         case 2: 
-         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.STUDENTS ])
-         break;
-
-         case 3: 
-         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.USERS ])
-         break;
-
-         case 4: 
-         this.router.navigate(['/'+ RoutePaths.LOGIN ])
-         break;
-
-
-      }
-
-
-
-    }
+   
 
 }

@@ -8,11 +8,12 @@ import { Course } from '../../shared/entities/entity';
 import { CommonModule } from '@angular/common';
 import { AddCourse } from "./add-course/add-course";
 import { EditCourse } from './edit-course/edit-course';
+import { MatIcon } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-course',
-  imports: [CoursesTable, CommonModule, AddCourse, EditCourse],
+  imports: [CoursesTable, CommonModule, AddCourse, EditCourse, MatIcon],
   templateUrl: './course.html',
   styleUrl: './course.scss'
 })

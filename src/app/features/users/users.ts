@@ -8,10 +8,11 @@ import { UsersTable } from './users-table/users-table';
 import { EditUser } from './edit-user/edit-user';
 import { AddUser } from './add-user/add-user';
 import { CommonModule } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-users',
-  imports: [UsersTable, EditUser, AddUser, CommonModule],
+  imports: [UsersTable, EditUser, AddUser, CommonModule, MatIcon],
   templateUrl: './users.html',
   styleUrl: './users.scss'
 })
