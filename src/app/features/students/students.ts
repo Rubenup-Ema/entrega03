@@ -29,28 +29,31 @@ export class Students implements OnInit {
 
   }
 
-   ngOnInit() {
-     this.loadStudents();
-     this.loadCourses();
+   async ngOnInit() {
+     await this.loadCourses();
+     await this.loadStudents();
      this.formVisible[0] = true;
   }
 
-   loadStudents() {
+  async loadStudents() {
 
-    this._servicios.loadStudents().subscribe({
-      next:   (data:any) => {
+    await this._servicios.loadStudents().subscribe({
+      next:   (data:Student[]) => {
 
-            if (data.ok.toString() === "true") {
+          this.students = data;
+          this.students.forEach(element=> {
 
-              this.students = data.result;
-              this.students = [...this.students];
-             this.noChangeNewSudent(true);
+            element.title = this.titleCourse(element.courseId);
 
-            }
+          })
+          this.students = [...this.students];
+          this.noChangeNewSudent(true);
+
+         
 
         }, error: (err) => {
 
-          this.snackBar.show(err);
+          this.snackBar.show(err.message);
 
         },
         complete: ()=> {
@@ -67,19 +70,46 @@ export class Students implements OnInit {
 
   }
 
-   loadCourses() {
 
-    this._serviciosC.loadCourses().subscribe(
+   titleCourse(id:number) {
+
+      const curso = this.courses.find(item => item.id.toString() === id.toString());
+
+      if (curso) {
+
+        return curso.title
+
+      } else {
+
+        return "NOT COURSING"
+
+      }
+
+   }
+
+  async loadCourses() {
+
+    await this._serviciosC.loadCourses().subscribe(
       
-        (data:any) => {
+       {
+        next: (response:Course[]) => {
 
-            if (data.ok.toString() === "true") {
+          this.courses = response;
 
-              this.courses = data.result;
-              
-            }
+        },
+        error: (err) => {
+
+          this.snackBar.show(`UPS!! ha pasado algo ${err.message}`)
+
+        },
+
+        complete: ()=>{
+
 
         }
+
+       }
+
 
       
     ) 
@@ -107,10 +137,10 @@ export class Students implements OnInit {
 
     this._servicios.addStudent(student).subscribe({
 
-      next:(data:any) => {
+      next:(data:Student) => {
 
-        if (data.ok.toString() === "true") {
-          this.snackBar.show(data.msg);
+        if (data) {
+          this.snackBar.show('ADDED Student!!!');
          
          
         } 
@@ -134,10 +164,10 @@ export class Students implements OnInit {
 
     this._servicios.editStudent(studentEdit).subscribe({
 
-      next:(data:any) => {
+      next:(data:Student) => {
 
-        if (data.ok.toString() === "true") {
-          this.snackBar.show(data.msg);
+        if (data) {
+          this.snackBar.show('UPDATE Student!!!');
           const index = this.students.findIndex(student => student.id === studentEdit.id);
 
   
@@ -174,7 +204,8 @@ export class Students implements OnInit {
  onDelete(studentDelete: Student) {
 
     const dialogRef = this.dialog.open(ConfirmDialog, {
-    width: '350px',
+    width: '450px',
+    height: '200px',
     data: { mensaje: '¿Estás seguro de eliminar al estudiante ' + studentDelete.name +  '?' }
   });
 
@@ -182,21 +213,28 @@ export class Students implements OnInit {
     if (resultado) {
       this._servicios.deleteStudent(studentDelete.id).subscribe(
 
-        (data:any) => {
+         {
 
-            if(data.ok.toString() === "true") {
-
-              this.students = this.students.filter(student => student.id !== studentDelete.id);
+            next: (response: Student)=> {
               
-              this.snackBar.show(data.msg);
+              if(response) {
 
-            } else {
+                  this.students = this.students.filter(student => student.id !== studentDelete.id);
+                
+               
+                this.snackBar.show('DELETED Student!!!');
 
-              this.snackBar.show(data.msg);
+              }
+            },
+            error: (err)=>{
+
+              console.log(err);
+              this.snackBar.show(`Ha sucedido lo siguiente ${err.message}`);
 
             }
 
-        }
+          }
+
 
       )
     } else {

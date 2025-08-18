@@ -9,68 +9,31 @@ import { Student } from '../../../shared/entities/entity';
 })
 export class ServiceStudents {
   
-    private url = "https://curso.sunsetmanager.com/api"
-
+    private url = "https://68a3040bc5a31eb7bb1ea2d9.mockapi.io";
     constructor(private http:HttpClient) {
 
 
     }
 
-    loadStudents() {
+    loadStudents(): Observable<Student[]> {
 
-      return this.http.get(`${this.url}/student`).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
+      return this.http.get<Student[]>(`${this.url}/student`);
 
     }
 
-     addStudent(student: Student) {
+     addStudent(student: Student):Observable<Student>  {
 
-      return this.http.post(`${this.url}/student`,student).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
+      return this.http.post<Student>(`${this.url}/student`,student);
     }
 
-    editStudent(student: Student) {
+    editStudent(student: Student): Observable<Student> {
 
-      return this.http.put(`${this.url}/student`,student).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
+      return this.http.put<Student>(`${this.url}/student/${student.id}`,student);
     }
      
-     deleteStudent(id:number) {
+     deleteStudent(id:number): Observable<Student> {
 
-      return this.http.delete(`${this.url}/student?id=${id}`).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
+      return this.http.delete<Student>(`${this.url}/student/${id}`);
 
     }
 }

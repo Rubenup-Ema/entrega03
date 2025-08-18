@@ -34,14 +34,18 @@ export class Dashboard implements OnInit {
       switch (id) {
 
          case 1: 
-         this.router.navigate(['/home/'+ RoutePaths.COURSES ])
+         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.COURSES ])
          break;
 
          case 2: 
-         this.router.navigate(['/home/'+ RoutePaths.STUDENTS ])
+         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.STUDENTS ])
          break;
 
          case 3: 
+         this.router.navigate(['/' + RoutePaths.HOME + '/' + RoutePaths.USERS ])
+         break;
+
+         case 4: 
          this.router.navigate(['/'+ RoutePaths.LOGIN ])
          break;
 

@@ -17,6 +17,10 @@ export const routes: Routes = [
         loadComponent: () => import('./features/students/students').then(m => m.Students)
       },
       {
+        path: RoutePaths.USERS,
+        loadComponent: () => import('./features/users/users').then(m => m.Users)
+      },
+      {
         path: RoutePaths.MAIN,
         loadComponent: () => import('./home/main/main').then(m => m.Main)
       },

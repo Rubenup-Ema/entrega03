@@ -20,7 +20,6 @@ export class Login implements OnInit {
       private snackBar: Message) {
 
          this.form =  this.fb.group({
-
           username: new FormControl('', [Validators.required,  Validators.email]),
           password: new FormControl('', [Validators.required, Validators.minLength(5)])
       })
@@ -35,7 +34,7 @@ export class Login implements OnInit {
         next: ()=>{console.log('data cargada..')},
         error: (err) => {
           console.log(err);
-          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err}`)}
+          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err.message}`)}
 
       })
       sessionStorage.setItem("user","");
@@ -58,7 +57,8 @@ export class Login implements OnInit {
 
         },
         error: (err) => {
-          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err}`);
+          console.log(err);
+          this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err.message}`);
         },
         complete: ()=> {console.log('Proceso completado')}
 

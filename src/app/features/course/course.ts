@@ -47,7 +47,7 @@ export class Courses implements OnInit{
       },
       error: (err) => {
         console.log(err);
-        this.snackBar.show(`UPS!! ha pasado algo ${err}`)
+        this.snackBar.show(`UPS!! ha pasado algo ${err.message}`)
       },
       complete: ()=> {
         
@@ -146,7 +146,8 @@ export class Courses implements OnInit{
    onDelete(courseDelete: Course) {
   
       const dialogRef = this.dialog.open(ConfirmDialog, {
-      width: '350px',
+      width: '450px',
+      height: '250px',
       data: { mensaje: '¿Estás seguro de eliminar el curso ' + courseDelete.title + '?' }
     });
   
@@ -170,7 +171,7 @@ export class Courses implements OnInit{
             error: (err)=>{
 
               console.log(err);
-              this.snackBar.show(`Ha sucedido lo siguiente ${err}`);
+              this.snackBar.show(`Ha sucedido lo siguiente ${err.message}`);
 
             }
 

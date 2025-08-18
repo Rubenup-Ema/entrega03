@@ -8,7 +8,6 @@ import { Course } from '../../../shared/entities/entity';
 })
 export class CoursesService {
   
-  // private url = "https://curso.sunsetmanager.com/api"
   private url = "https://68a25a8ec5a31eb7bb1cc6a1.mockapi.io";
 
     constructor(private http:HttpClient) {

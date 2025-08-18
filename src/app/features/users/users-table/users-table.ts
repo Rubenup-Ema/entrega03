@@ -1,0 +1,50 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../../../shared/entities/entity';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-users-table',
+  imports: [MatTableModule,  MatIconModule],
+  templateUrl: './users-table.html',
+  styleUrl: './users-table.scss'
+})
+export class UsersTable {
+
+  @Input() users: User[] = [];
+  @Output() UserEdit= new EventEmitter<User>();
+  @Output() UserDelete= new EventEmitter<User>();
+
+  displayedColumns: string[] = ['id', 'name', 'email' ,'password','role', 'acciones']
+
+  constructor() {
+
+
+  }
+
+  ngOnInit(): void {
+    
+   
+
+  }
+
+ 
+  onDelete(User: User){
+
+    this.UserDelete.emit(User);
+
+  }
+
+  onEdit(User: User){
+
+  
+    let editUser!: User;
+
+    editUser = User ;
+
+    this.UserEdit.emit(editUser);
+
+  }
+
+
+}
