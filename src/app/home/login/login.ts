@@ -66,6 +66,7 @@ export class Login implements OnInit {
         },
         error: (err) => {
           console.log(err);
+          this.procesando = false;
           this.snackBar.show(`UPS!! ha sucedido lo siguiente: ${err.message}`);
         },
         complete: ()=> {console.log('Proceso completado')}

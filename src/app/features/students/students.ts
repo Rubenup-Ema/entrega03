@@ -32,7 +32,7 @@ export class Students implements OnInit {
 
    async ngOnInit() {
      await this.loadCourses();
-     await this.loadStudents();
+    
      this.formVisible[0] = true;
   }
 
@@ -106,6 +106,7 @@ export class Students implements OnInit {
 
         complete: ()=>{
 
+            this.loadStudents();
 
         }
 
