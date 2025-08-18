@@ -21,7 +21,6 @@ export class Breadcrumb {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.componentCurrent = event.urlAfterRedirects;
-        console.log('Componente actual:', this.componentCurrent);
       });
   }
 

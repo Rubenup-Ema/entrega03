@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { RoutePaths } from './shared/utils/routes';
+import { roleGuard } from './shared/guards/role-guard';
 
 export const routes: Routes = [
 
@@ -19,8 +20,13 @@ export const routes: Routes = [
       },
       {
         path: RoutePaths.USERS,
-        loadComponent: () => import('./features/users/users').then(m => m.Users)
+        loadComponent: () => import('./features/users/users').then(m => m.Users), canActivate:[roleGuard]
       },
+     {
+      path: RoutePaths.NOTFOUND,
+      loadComponent: () => import('./shared/not-found/not-found').then(m => m.NotFound)
+     },
+      
       {
         path: '',
         redirectTo: RoutePaths.HOME, 

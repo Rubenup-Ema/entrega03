@@ -5,6 +5,7 @@ export enum RoutePaths {
     COURSES = 'courses',
     STUDENTS  = 'students',
     USERS = 'users',
-    MAIN = 'main'
+    MAIN = 'main',
+    NOTFOUND = 'not-found'
 
 }
