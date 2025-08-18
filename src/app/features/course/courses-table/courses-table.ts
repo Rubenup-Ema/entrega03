@@ -17,7 +17,7 @@ export class CoursesTable {
   @Output() CourseEdit= new EventEmitter<Course>();
   @Output() CourseDelete= new EventEmitter<Course>();
 
-  displayedColumns: string[] = ['id', 'title', 'description', 'tstudent' ,'acciones']
+  displayedColumns: string[] = ['id', 'title', 'description' ,'acciones']
 
   constructor() {
 

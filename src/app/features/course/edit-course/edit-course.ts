@@ -16,7 +16,7 @@ export class EditCourse implements OnInit {
   @Output() noChanges = new EventEmitter<boolean>();
 
    private _courseEdit!: Course;
-  course: Course = {id: 0, title:'', description:'', tstudent:0};
+  course: Course = {id: 0, title:'', description:''};
  
   @Input() set courseEdit(value: Course) {
 
@@ -45,7 +45,6 @@ loadCourseData(): void {
     id: this.course.id,
     title: this.course.title,
     description: this.course.description,
-    tstudent: this.course.tstudent
   });
 
 }
@@ -57,7 +56,6 @@ loadCourseData(): void {
       id: [0, [Validators.required]],
       title: ['', Validators.required],
       description: ['', Validators.required],
-      tstudent: [0]
      
     })
 

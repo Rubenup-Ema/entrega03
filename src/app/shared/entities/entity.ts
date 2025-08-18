@@ -14,5 +14,4 @@ export interface Course {
   id: number;
   title: string;
   description: string;
-  tstudent: number;
 }

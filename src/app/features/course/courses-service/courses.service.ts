@@ -22,49 +22,20 @@ export class CoursesService {
 
     }
 
-    addCourse(course:Course) {
+    addCourse(course:Course): Observable<Course> {
 
-       return this.http.post(`${this.url}/course`,course).pipe (
+       return this.http.post<Course>(`${this.url}/course`,course)
+    }
 
-        map( data=>{
+     editCourse(course:Course): Observable<Course> {
 
-          return data;
-
-        }
-
-        )
-      )
+       return this.http.put<Course>(`${this.url}/course/${course.id}`,course)
 
     }
 
-     editCourse(course:Course) {
+      deleteCourse(id:number): Observable<Course> {
 
-       return this.http.put(`${this.url}/course`,course).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
-
-    }
-
-      deleteCourse(id:number) {
-
-      return this.http.delete(`${this.url}/course?id=${id}`).pipe (
-
-        map( data=>{
-
-          return data;
-
-        }
-
-        )
-      )
-
+        return this.http.delete<Course>(`${this.url}/course/${id}`)
     }
 
 }

@@ -37,18 +37,23 @@ export class Courses implements OnInit{
 
   loadCourses() {
 
-    this._servicios.loadCourses().subscribe(
-      
-        (data:any) => {
+    this._servicios.loadCourses().subscribe({
 
-            if (data.ok.toString() === "true") {
+      next: (response)=> {
 
-              this.courses = data.result;
-               this.noChangeNewCourse(true);
-            }
+              this.courses = response;
+              this.noChangeNewCourse(true);
 
-        }
-
+      },
+      error: (err) => {
+        console.log(err);
+        this.snackBar.show(`UPS!! ha pasado algo ${err}`)
+      },
+      complete: ()=> {
+        
+        console.log('Proceso completado!!')
+      },
+    }
       
     ) 
 
@@ -71,15 +76,16 @@ export class Courses implements OnInit{
 
     this._servicios.addCourse(course).subscribe({
 
-      next:(data:any) => {
+        next:(response:Course) => {
 
-        if (data.ok.toString() === "true") {
-          this.snackBar.show(data.msg);
+        if (response) {
+            this.snackBar.show('REGISTERED Course!!!');
           this.loadCourses();
-         
-        } 
-
-      },
+          
+          } 
+          this.noChangeNewCourse(true);
+      }
+      ,
       error: (err) =>{
 
          this.snackBar.show(err.message);
@@ -95,10 +101,10 @@ export class Courses implements OnInit{
 
     this._servicios.editCourse(courseEdit).subscribe({
 
-      next:(data:any) => {
+      next:(response:Course) => {
 
-        if (data.ok.toString() === "true") {
-          this.snackBar.show(data.msg);
+        if (response) {
+          this.snackBar.show('UPDATED Course!!!');
           const index = this.courses.findIndex(course => course.id === courseEdit.id);
 
   
@@ -147,23 +153,30 @@ export class Courses implements OnInit{
     dialogRef.afterClosed().subscribe(resultado => {
       if (resultado) {
         this._servicios.deleteCourse(courseDelete.id).subscribe(
-  
-          (data:any) => {
-  
-              if(data.ok.toString() === "true") {
-  
-                this.courses = this.courses.filter(course => course.id !== courseDelete.id);
+          
+          {
+
+            next: (value: Course)=> {
+              
+              if(value) {
+
+                  this.courses = this.courses.filter(course => course.id !== courseDelete.id);
                 
                
-                this.snackBar.show(data.msg);
-  
-              } else {
-  
-                this.snackBar.show(data.msg);
-  
+                this.snackBar.show('DELETED Course!!!');
+
               }
-  
+            },
+            error: (err)=>{
+
+              console.log(err);
+              this.snackBar.show(`Ha sucedido lo siguiente ${err}`);
+
+            }
+
           }
+
+         
   
         )
       } else {
