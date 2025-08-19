@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/home/main/main.scss"],
+  "sourcesContent": ["span {\r\n\r\n    font-size: 18px;\r\n    padding:5px;\r\n   \r\n\r\n}"],
+  "mappings": ";AAAA;AAEI,aAAA;AACA,WAAA;;",
+  "names": []
+}

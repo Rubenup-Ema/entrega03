@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/course/courses-service/courses.service.ts"],
+  "sourcesContent": ["import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { map, Observable } from 'rxjs';\nimport { Course } from '../../../shared/entities/entity';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CoursesService {\n  \n  private url = \"https://68a25a8ec5a31eb7bb1cc6a1.mockapi.io\";\n\n    constructor(private http:HttpClient) {\n\n\n    }\n\n    loadCourses(): Observable<Course[]> {\n\n      return this.http.get<Course[]>(`${this.url}/course`)\n\n    }\n\n    addCourse(course:Course): Observable<Course> {\n\n       return this.http.post<Course>(`${this.url}/course`,course)\n    }\n\n     editCourse(course:Course): Observable<Course> {\n\n       return this.http.put<Course>(`${this.url}/course/${course.id}`,course)\n\n    }\n\n      deleteCourse(id:number): Observable<Course> {\n\n        return this.http.delete<Course>(`${this.url}/course/${id}`)\n    }\n\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;IAQa;;;;;AARb;AACA;AAOO,IAAM,iBAAN,MAAMA,gBAAc;MAIH;MAFd,MAAM;MAEZ,YAAoB,MAAe;AAAf,aAAA,OAAA;MAGpB;MAEA,cAAW;AAET,eAAO,KAAK,KAAK,IAAc,GAAG,KAAK,GAAG,SAAS;MAErD;MAEA,UAAU,QAAa;AAEpB,eAAO,KAAK,KAAK,KAAa,GAAG,KAAK,GAAG,WAAU,MAAM;MAC5D;MAEC,WAAW,QAAa;AAEtB,eAAO,KAAK,KAAK,IAAY,GAAG,KAAK,GAAG,WAAW,OAAO,EAAE,IAAG,MAAM;MAExE;MAEE,aAAa,IAAS;AAEpB,eAAO,KAAK,KAAK,OAAe,GAAG,KAAK,GAAG,WAAW,EAAE,EAAE;MAC9D;;;;;AA7BS,qBAAc,WAAA;MAH1B,WAAW;QACV,YAAY;OACb;OACY,cAAc;;;",
+  "names": ["CoursesService"]
+}

@@ -1,0 +1,48 @@
+import {
+  CoursesTable,
+  init_courses_table
+} from "./chunk-BMKQS7IL.js";
+import "./chunk-UUFGLTLE.js";
+import "./chunk-OXHJM6CS.js";
+import "./chunk-74OP2HF7.js";
+import "./chunk-EK5H3XRJ.js";
+import "./chunk-ZTMR27KN.js";
+import "./chunk-NRHMCMVT.js";
+import "./chunk-6DWKSTVF.js";
+import "./chunk-TN4SF22G.js";
+import "./chunk-IGNVD64K.js";
+import "./chunk-Z6ZKRIMX.js";
+import {
+  TestBed,
+  init_testing
+} from "./chunk-BSCEPWPW.js";
+import "./chunk-OSLE7AZX.js";
+import {
+  __async,
+  __commonJS
+} from "./chunk-TTULUY32.js";
+
+// src/app/features/course/courses-table/courses-table.spec.ts
+var require_courses_table_spec = __commonJS({
+  "src/app/features/course/courses-table/courses-table.spec.ts"(exports) {
+    init_testing();
+    init_courses_table();
+    describe("CoursesTable", () => {
+      let component;
+      let fixture;
+      beforeEach(() => __async(null, null, function* () {
+        yield TestBed.configureTestingModule({
+          imports: [CoursesTable]
+        }).compileComponents();
+        fixture = TestBed.createComponent(CoursesTable);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      }));
+      it("should create", () => {
+        expect(component).toBeTruthy();
+      });
+    });
+  }
+});
+export default require_courses_table_spec();
+//# sourceMappingURL=spec-courses-table.spec.js.map

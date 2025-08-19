@@ -5,4 +5,17 @@ describe('MaskPipe', () => {
     const pipe = new MaskPipe();
     expect(pipe).toBeTruthy();
   });
+
+  fit('deberia retornar ********', ()=> {
+  
+      const fixture = new MaskPipe;
+  
+      const titulo = fixture.transform('password');
+  
+      expect(titulo).toBe('********');
+  
+    });
+
 });
+
+

@@ -5,10 +5,11 @@ import { Main } from '../main/main';
 import { Breadcrumb } from "../breadcrumb/breadcrumb";
 import { MatIcon } from '@angular/material/icon';
 import { MenuVer } from "../menu-ver/menu-ver";
+import { RoutePaths } from '../../shared/utils/routes';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, CommonModule, Main, Breadcrumb, MatIcon, MenuVer],
+  imports: [RouterOutlet, CommonModule, Main, Breadcrumb, MenuVer],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
@@ -25,7 +26,7 @@ export class Dashboard implements OnInit {
 
       if (user.trim() === "") {
 
-        this.router.navigate(['/login']);
+        this.router.navigate(['/'+ RoutePaths.LOGIN]);
 
       }
 

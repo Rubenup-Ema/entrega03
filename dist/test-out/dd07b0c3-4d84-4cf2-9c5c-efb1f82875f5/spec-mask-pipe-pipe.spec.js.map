@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/pipe/mask-pipe-pipe.spec.ts"],
+  "sourcesContent": ["import { MaskPipe } from './mask-pipe-pipe';\r\n\r\ndescribe('MaskPipe', () => {\r\n  it('create an instance', () => {\r\n    const pipe = new MaskPipe();\r\n    expect(pipe).toBeTruthy();\r\n  });\r\n\r\n  fit('deberia retornar ********', ()=> {\r\n  \r\n      const fixture = new MaskPipe;\r\n  \r\n      const titulo = fixture.transform('password');\r\n  \r\n      expect(titulo).toBe('********');\r\n  \r\n    });\r\n\r\n});\r\n\r\n\r\n"],
+  "mappings": ";;;;;;;;AAAA;AAEA,SAAS,YAAY,MAAK;AACxB,KAAG,sBAAsB,MAAK;AAC5B,UAAM,OAAO,IAAI,SAAQ;AACzB,WAAO,IAAI,EAAE,WAAU;EACzB,CAAC;AAED,MAAI,6BAA6B,MAAI;AAEjC,UAAM,UAAU,IAAI;AAEpB,UAAM,SAAS,QAAQ,UAAU,UAAU;AAE3C,WAAO,MAAM,EAAE,KAAK,UAAU;EAEhC,CAAC;AAEL,CAAC;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/services/message.spec.ts"],
+  "sourcesContent": ["import { TestBed } from '@angular/core/testing';\n\nimport { Message } from './message';\nimport { MatSnackBar } from '@angular/material/snack-bar';\n\ndescribe('Message', () => {\n  let service: Message;\n  let snackBarSpy: jasmine.SpyObj<MatSnackBar>;\n\n  beforeEach(() => {\n    const spy = jasmine.createSpyObj('MatSnackBar', ['open']);\n\n    TestBed.configureTestingModule({\n      providers: [\n        Message,\n        { provide: MatSnackBar, useValue: spy }\n      ]\n    });\n\n    service = TestBed.inject(Message);\n    snackBarSpy = TestBed.inject(MatSnackBar) as jasmine.SpyObj<MatSnackBar>;\n  });\n\n  fit('abre snackbar con el texto y opciones correctas', () => {\n    service.show('Proceso completado!!!');\n\n    expect(snackBarSpy.open).toHaveBeenCalledWith(\n      'Proceso completado!!! ✅',\n      'Cerrar',\n      {\n        duration: 3000,\n        verticalPosition: 'top',\n        horizontalPosition: 'right'\n      }\n    );\n  });\n});"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;AAAA;AAEA;AACA;AAEA,SAAS,WAAW,MAAK;AACvB,MAAI;AACJ,MAAI;AAEJ,aAAW,MAAK;AACd,UAAM,MAAM,QAAQ,aAAa,eAAe,CAAC,MAAM,CAAC;AAExD,YAAQ,uBAAuB;MAC7B,WAAW;QACT;QACA,EAAE,SAAS,aAAa,UAAU,IAAG;;KAExC;AAED,cAAU,QAAQ,OAAO,OAAO;AAChC,kBAAc,QAAQ,OAAO,WAAW;EAC1C,CAAC;AAED,MAAI,mDAAmD,MAAK;AAC1D,YAAQ,KAAK,uBAAuB;AAEpC,WAAO,YAAY,IAAI,EAAE,qBACvB,gCACA,UACA;MACE,UAAU;MACV,kBAAkB;MAClB,oBAAoB;KACrB;EAEL,CAAC;AACH,CAAC;",
+  "names": []
+}

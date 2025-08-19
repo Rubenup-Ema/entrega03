@@ -5,6 +5,7 @@ import { Data, Router } from '@angular/router';
 import { ServicesLogin } from '../../shared/services/services.login';
 import { Message } from '../../shared/services/message';
 import { DataLogin } from './login.entity';
+import { RoutePaths } from '../../shared/utils/routes';
 
 @Component({
   selector: 'app-login',
@@ -61,7 +62,7 @@ export class Login implements OnInit {
           sessionStorage.setItem("role", data.role);
           sessionStorage.setItem("email", data.email);
 
-          this.router.navigate(['/home']);
+          this.router.navigate(['/' + RoutePaths.HOME]);
 
         },
         error: (err) => {

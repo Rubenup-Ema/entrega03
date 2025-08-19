@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/pipe/fullname-pipe.spec.ts"],
+  "sourcesContent": ["import { TestBed } from '@angular/core/testing';\nimport { FullnamePipe } from './fullname-pipe';\n\ndescribe('FullnamePipe', () => {\n\n\n  it('create an instance', () => {\n    const pipe = new FullnamePipe();\n    expect(pipe).toBeTruthy();\n  });\n\n   fit('deberia retornar titulo incorrecto', ()=> {\n\n    const fixture = new FullnamePipe;\n\n    const titulo = fixture.transform('titulo', 'incorrecto');\n\n    expect(titulo).toBe('titulo incorrecto');\n\n  });\n\n});\n\n\n\n"],
+  "mappings": ";;;;;;;;AACA;AAEA,SAAS,gBAAgB,MAAK;AAG5B,KAAG,sBAAsB,MAAK;AAC5B,UAAM,OAAO,IAAI,aAAY;AAC7B,WAAO,IAAI,EAAE,WAAU;EACzB,CAAC;AAEA,MAAI,sCAAsC,MAAI;AAE7C,UAAM,UAAU,IAAI;AAEpB,UAAM,SAAS,QAAQ,UAAU,UAAU,YAAY;AAEvD,WAAO,MAAM,EAAE,KAAK,mBAAmB;EAEzC,CAAC;AAEH,CAAC;",
+  "names": []
+}

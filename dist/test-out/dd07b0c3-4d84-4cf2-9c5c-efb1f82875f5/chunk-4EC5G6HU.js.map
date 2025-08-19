@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/pipe/mask-pipe-pipe.ts"],
+  "sourcesContent": ["import { Pipe, PipeTransform } from '@angular/core';\r\n\r\n@Pipe({\r\n  name: 'mask'\r\n})\r\nexport class MaskPipe implements PipeTransform {\r\n\r\n  transform(value: string): string {\r\n    return '*'.repeat(value.length);\r\n  }\r\n\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;IAKa;;;;;AALb;AAKO,IAAM,WAAN,MAAMA,UAAQ;MAEnB,UAAU,OAAa;AACrB,eAAO,IAAI,OAAO,MAAM,MAAM;MAChC;;AAJW,eAAQ,WAAA;MAHpB,KAAK;QACJ,MAAM;OACP;OACY,QAAQ;;;",
+  "names": ["MaskPipe"]
+}

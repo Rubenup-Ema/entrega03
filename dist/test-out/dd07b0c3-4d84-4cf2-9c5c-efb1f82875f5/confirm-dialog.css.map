@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/utils/confirm-dialog/confirm-dialog.scss"],
+  "sourcesContent": [".btn-verde {\r\n  background-color: #4caf50 !important;\r\n  color: white !important;\r\n}\r\n\r\n.btn-rojo {\r\n  background-color: #f44336 !important;\r\n  color: white !important;\r\n}"],
+  "mappings": ";AAAA,CAAA;AACE,oBAAA;AACA,SAAA;;AAGF,CAAA;AACE,oBAAA;AACA,SAAA;;",
+  "names": []
+}

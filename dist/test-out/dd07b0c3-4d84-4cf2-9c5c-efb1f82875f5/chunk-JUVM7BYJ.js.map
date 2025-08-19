@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/users/users-service.ts"],
+  "sourcesContent": ["import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { User } from '../../shared/entities/entity';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class UsersService {\r\n  \r\n  private url = \"https://68a25a8ec5a31eb7bb1cc6a1.mockapi.io\";\r\n\r\n    constructor(private http:HttpClient) {\r\n\r\n\r\n    }\r\n\r\n    loadUsers(): Observable<User[]> {\r\n\r\n      return this.http.get<User[]>(`${this.url}/user`)\r\n\r\n    }\r\n\r\n    addUser(user:User): Observable<User> {\r\n\r\n       return this.http.post<User>(`${this.url}/user`,user)\r\n    }\r\n\r\n     editUser(user:User): Observable<User> {\r\n\r\n       return this.http.put<User>(`${this.url}/user/${user.id}`,user)\r\n\r\n    }\r\n\r\n      deleteUser(id:number): Observable<User> {\r\n\r\n        return this.http.delete<User>(`${this.url}/user/${id}`)\r\n    }\r\n\r\n\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;IAQa;;;;;AARb;AACA;AAOO,IAAM,eAAN,MAAMA,cAAY;MAID;MAFd,MAAM;MAEZ,YAAoB,MAAe;AAAf,aAAA,OAAA;MAGpB;MAEA,YAAS;AAEP,eAAO,KAAK,KAAK,IAAY,GAAG,KAAK,GAAG,OAAO;MAEjD;MAEA,QAAQ,MAAS;AAEd,eAAO,KAAK,KAAK,KAAW,GAAG,KAAK,GAAG,SAAQ,IAAI;MACtD;MAEC,SAAS,MAAS;AAEhB,eAAO,KAAK,KAAK,IAAU,GAAG,KAAK,GAAG,SAAS,KAAK,EAAE,IAAG,IAAI;MAEhE;MAEE,WAAW,IAAS;AAElB,eAAO,KAAK,KAAK,OAAa,GAAG,KAAK,GAAG,SAAS,EAAE,EAAE;MAC1D;;;;;AA7BS,mBAAY,WAAA;MAHxB,WAAW;QACV,YAAY;OACb;OACY,YAAY;;;",
+  "names": ["UsersService"]
+}

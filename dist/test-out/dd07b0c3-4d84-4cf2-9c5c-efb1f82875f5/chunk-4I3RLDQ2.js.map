@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/pipe/fullname-pipe.ts"],
+  "sourcesContent": ["import { Pipe, PipeTransform } from '@angular/core';\n\n@Pipe({\n  name: 'fullname'\n})\nexport class FullnamePipe implements PipeTransform {\n\n  transform(name: string, surname: string): unknown {\n    return name + \" \" +surname;\n  }\n\n}\n"],
+  "mappings": ";;;;;;;;;;;IAKa;;;;;AALb;AAKO,IAAM,eAAN,MAAMA,cAAY;MAEvB,UAAU,MAAc,SAAe;AACrC,eAAO,OAAO,MAAK;MACrB;;AAJW,mBAAY,WAAA;MAHxB,KAAK;QACJ,MAAM;OACP;OACY,YAAY;;;",
+  "names": ["FullnamePipe"]
+}
